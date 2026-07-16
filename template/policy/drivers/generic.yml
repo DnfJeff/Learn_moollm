@@ -1,0 +1,73 @@
+# Driver — generic
+# The "I don't know where I am" case. Assume almost nothing; degrade everything.
+#
+# ALWAYS SHIP THIS ONE. An agent that can't run on an unknown host isn't portable —
+# it's written for one host with extra ceremony.
+
+driver:
+  name: generic
+  tier: 1
+  detect:
+    - "fallback — nothing else matched"
+
+capabilities:
+  file_read: maybe
+  file_write: maybe
+  file_search: false
+  terminal: false
+  semantic_search: false
+  custom_tools: false
+  why_parameter: false
+  append_only_enforcement: false
+
+tools:
+  possible:
+    - read_file
+    - write_file
+    - list_dir
+  fallback: "Ask the user to perform the operation and report the result."
+
+fallbacks:
+  file_read: |
+    If a read tool exists, use it. If not, ask the user to paste the file.
+    Name the exact path you need.
+
+  file_write: |
+    If a write tool exists, use it. If not, output the full file content in a fenced
+    block and ask the user to save it to a named path.
+
+  file_search: |
+    No search. Ask the user where something is, or infer from what you've been shown.
+    Do not claim you searched.
+
+  terminal: |
+    No execution. Describe the command you would run and ask the user to run it and
+    paste the output.
+
+  semantic_search: |
+    None. Work from what's in context. Say what you don't know.
+
+  custom_tools: |
+    No MCP, no custom schemas. Everything happens through conversation.
+    Where a capability's CARD lists a tool you don't have, use that tool's own
+    fallback above, or ask the user.
+
+  why_parameter: |
+    Always state intent in prose: "I want to [action] because [reason]."
+
+  append_only_enforcement: |
+    Convention only. Ask the user to preserve prior content when saving.
+
+# Tier-1 behavior: the constraint is real, so be explicit rather than confident.
+guidelines:
+  be_explicit:
+    - "State what you're trying to do"
+    - "State what tools you'd need"
+    - "State what you're assuming"
+  be_honest:
+    - "Acknowledge capability limits plainly"
+    - "Never pretend to have done something you couldn't"
+    - "Don't imply coverage you didn't have"
+  be_persistent:
+    - "Keep notes in your responses — you may have no file state"
+    - "Summarize progress at every boundary"

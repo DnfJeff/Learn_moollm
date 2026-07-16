@@ -1,0 +1,9 @@
+# Runtime state is not source.
+.agent/
+
+# ...except the templates, so a fresh clone has examples to start from.
+!.agent/working-set.yml
+!.agent/hot.yml
+!.agent/cold.yml
+!.agent/session-log.md
+!.agent/output.md

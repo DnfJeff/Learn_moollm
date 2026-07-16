@@ -1,0 +1,35 @@
+# GLANCE.yml — code-review
+# Full: CARD.yml | SKILL.md
+# 🔍 "Review against intent, not against style rules."
+
+what: |
+  Reviews a diff for correctness bugs and simplification opportunities.
+  Not a linter — it reasons about what the code is trying to do
+  and whether it does that.
+
+why: |
+  - Catches logic errors static analysis structurally cannot see
+  - Finds reuse: "this already exists in utils/"
+  - Reads intent from the PR description and checks the diff against it
+
+when:
+  - '"review this" → REVIEW'
+  - '"is this correct?" → REVIEW --focus correctness'
+  - '"can this be simpler?" → REVIEW --focus reuse'
+  - 'A nontrivial diff exists and nobody has looked at it → REVIEW'
+
+# The payload. Everything else follows from this line.
+key_insight: |
+  A linter checks code against rules. A review checks code against INTENT.
+  Intent lives in the PR description, the tests, and the surrounding code —
+  never in the diff alone. Read those first or you're just a slow linter.
+
+methods:
+  REVIEW: "REVIEW [path] [--focus correctness|reuse|all]"
+  EXPLAIN: "EXPLAIN [finding-id]"
+
+anti_pattern: |
+  PADDING — inventing findings to look thorough. One real bug beats
+  six style nits, and six nits train the reader to ignore you.
+
+related: [example-capability]

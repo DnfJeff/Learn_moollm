@@ -1,0 +1,42 @@
+# GLANCE.yml — example-capability
+#
+# TIER 1 of the ladder. Budget: ~400 tokens. Answers exactly one question:
+#
+#     "Is this relevant to what I'm doing right now?"
+#
+# That is ALL it does. It is a filter, not a summary.
+#
+# THE RULE THAT MAKES THIS WORK:
+#   This is a REWRITE, not a truncation. It is NOT the first 40 lines of SKILL.md.
+#   It answers a different question, so it is a different document.
+#   Do NOT auto-generate this file — a generated summary is a truncation with extra
+#   steps, and it will drop the one insight that mattered.
+
+what: |
+  One or two sentences. What this capability does, in plain terms.
+  Assume the reader knows nothing about it and has 5 seconds.
+
+why: |
+  - The concrete reason to reach for this
+  - Another one
+  - Keep it to three; if there are more, they're not reasons, they're features
+
+when:
+  - '"phrase a user might say" → METHOD'
+  - '"another phrasing" → METHOD --with-flag'
+
+# THE PAYLOAD. The one non-obvious thing a reader must know before descending.
+# This line earns the whole file. If you can't write one, you may not understand
+# the capability yet.
+#
+# MOOLLM's `card` skill is 25,102 bytes; its GLANCE key_insight is one line:
+#   "Cards are ACTIVATION TRIGGERS, not handlers."
+# No truncation of the SKILL would ever surface that line. That's the point.
+key_insight: "The one thing that isn't obvious from the name."
+
+# Signatures only. Not descriptions — that's CARD's job.
+methods:
+  DO-THING: "DO-THING [target] [--flag]"
+  EXPLAIN: "EXPLAIN [id]"
+
+related: [code-review]

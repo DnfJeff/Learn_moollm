@@ -1,0 +1,80 @@
+# CARD.yml — example-capability
+#
+# TIER 2 of the ladder. Budget: ~1,400 tokens. Answers:
+#
+#     "What can it do, and how do I call it?"
+#
+# MOST READS SHOULD STOP HERE. If the agent can't USE the capability from this file
+# alone, the CARD is incomplete — don't make readers descend into SKILL.md for basics.
+#
+# Comments in this file are semantic. The model reads them. Use them to carry the
+# context that structured fields can't — but never as decoration. No divider lines;
+# every byte is taxed.
+
+card:
+  name: example-capability
+  invoke_when:
+    - "A situation where this obviously applies"
+    - "Another situation"
+  related: [code-review]
+
+# FILES — everything in this unit, so one read of the CARD tells the agent what else
+# exists and what's worth paging in next. List every file, even optional ones that
+# don't exist yet in this skeleton. (MOOLLM cards carry this; it turns activation into
+# "load me + my resources" in one step.)
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md]   # README.md when it exists
+  # scripts: [check.py]                      # sister scripts, when they exist
+  # templates: [INSTANCE.md.tmpl]            # if this capability is a factory
+  # instances: [examples/]                   # starter catalog, if a factory
+  resolution: card                           # how deep to page in by default:
+                                             #   glance | card | skill | full
+
+# What this needs from the host. Check the driver before assuming these exist.
+tools:
+  required: [read_file]
+  optional: [search]
+
+methods:
+  DO-THING:
+    description: "One line: what it does"
+    parameters:
+      target: "What it acts on. Defaults to the working set."
+      flag: "Optional. Changes behavior how? (default: off)"
+    output: "What comes back, in what shape"
+    effect: "Any state change. Say 'none' if pure."
+
+  EXPLAIN:
+    description: "Explain a previous result"
+    parameters:
+      id: "The result to explain"
+    output: "Prose"
+    effect: none
+
+# TRIGGERS — declarative routing. This capability declares when IT is relevant.
+# Nothing central knows the catalogue; adding a capability = adding a directory.
+#
+# HONEST LIMIT: nothing evaluates `when:`. The model reads the prose and judges.
+# This is soft routing. Good for "which of these 20 is probably right?"
+# WRONG for "must this security check run?" — put a real check in the code path.
+triggers:
+  DO-THE-THING:
+    score: 80          # 90-100 almost certain · 70-89 strong · 40-69 plausible · <40 long shot
+    when: "Describe the SITUATION, specifically enough for a model to judge it"
+    method: DO-THING
+    # Preconditions gate VISIBILITY: if this can't run here (missing tool, wrong host),
+    # it shouldn't enter the choice at all. When you need it, graduate the bare string
+    # to typed gates:  requires: [terminal]   blocked_reason: "no terminal on this host"
+
+  # A trigger with `when: always` is a standing constraint. `resolution` declares how
+  # much to keep loaded — always-on at full depth eats the context budget.
+  # AMBIENT:
+  #   score: 100
+  #   when: always
+  #   scope: session
+  #   resolution: card-only
+
+state:
+  # If this capability persists anything, describe its shape here. Otherwise:
+  # "none — this capability is stateless"
+  none: "This capability is stateless"

@@ -1,0 +1,35 @@
+skill directories: 141
+
+PYRAMID CONFORMANCE
+  GLANCE.yml    140/141  missing: stone
+  CARD.yml      140/141  missing: stone
+  SKILL.md      140/141  missing: stone
+  README.md     131/141  missing: content-rescue, copy-that, emacs, example-curator, knowledge-frames, moocroworld, sim-obliterator, skill-log, skill-test, stone
+  full 4-tier pyramid: 131/141
+
+TOKEN ECONOMICS (estimated)
+  tier            n  total KB   mean B  median B    ~tokens
+  GLANCE.yml    140       229     1675      1483     58,615
+  CARD.yml      140       743     5432      3847    190,133
+  SKILL.md      140      1509    11037      6628    386,290
+  README.md     131       607     4742      2576    155,290
+
+  entire skill corpus :    3087 KB  ~  790,329 tokens
+  GLANCE-only sweep   :     229 KB  ~   58,615 tokens
+  compression ratio   :    13.5x
+  INDEX.yml           :    19.9 KB  ~    5,096 tokens  (155x smaller than corpus)
+
+  cost of full-depth loading:
+     1 skills ~  5,605 tokens ( 0.7% of corpus)
+     3 skills ~ 16,816 tokens ( 2.1% of corpus)
+     5 skills ~ 28,026 tokens ( 3.5% of corpus)
+    10 skills ~ 56,052 tokens ( 7.1% of corpus)
+
+INDEX DRIFT
+  INDEX.yml skill_count : 133
+  actual directories    : 141
+  drift                 : +8
+
+BOOT ARTIFACT VALIDITY
+  .cursorrules parses as YAML: NO ->   in "J:\Repos\AI Orchestration\moollm\.cursorrules", line 208, column 2
+  (works anyway: an LLM reads it, not a parser)

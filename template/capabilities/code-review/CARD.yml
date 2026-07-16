@@ -1,0 +1,72 @@
+# CARD.yml — code-review
+#
+# Interface. Most reads stop here — you can call REVIEW correctly from this file alone.
+# Descend to SKILL.md only to change how reviewing works.
+
+card:
+  name: code-review
+  invoke_when:
+    - "Before opening a PR"
+    - "After a nontrivial change"
+    - "User asks whether something is correct"
+  related: [example-capability]
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md]
+  resolution: card       # callable from this file alone; page SKILL.md only to change how reviewing works
+
+tools:
+  required: [read_file, search]
+  optional: [terminal]     # to run tests; degrade to reading them if absent
+
+methods:
+  REVIEW:
+    description: "Review a diff for correctness bugs and simplification"
+    parameters:
+      path: "File or directory. Default: the working diff."
+      focus: "correctness | reuse | all. Default: all."
+      effort: "low | medium | high. Default: medium.
+               low = few high-confidence findings; high = broader, may include uncertain ones."
+    output: "Findings, most severe first. Each: file:line, what's wrong, how it fails."
+    effect: "none — read-only"
+
+  EXPLAIN:
+    description: "Expand on a finding: why it's a bug, how to trigger it"
+    parameters:
+      finding_id: "From a previous REVIEW"
+    output: "Prose + a concrete failure scenario"
+    effect: none
+
+# Declarative routing. Each trigger names a SITUATION, not this capability.
+triggers:
+  REVIEW-BEFORE-MERGE:
+    score: 90
+    when: "A PR is open, or the user says they're about to merge or push"
+    method: REVIEW
+
+  REVIEW-SECURITY:
+    score: 95
+    when: "Diff touches auth, crypto, input parsing, file paths, or SQL"
+    method: REVIEW
+    params: { focus: correctness, effort: high }
+
+  REVIEW-ON-REQUEST:
+    score: 100
+    when: "User explicitly asks for a review"
+    method: REVIEW
+
+  # NOT a trigger: 'must the security review run before merge?'
+  # That's an invariant. A relevance score cannot enforce it — a CI gate can.
+  # See guide/02-declarative-routing.md § The honest limit.
+
+state:
+  none: "Stateless. Findings go to .agent/output.md; the capability holds nothing."
+
+# Findings must be actionable or they're noise.
+finding_shape:
+  file: "repo-relative path"
+  line: "1-indexed"
+  summary: "One sentence: what's wrong"
+  failure_scenario: "Concrete inputs/state → wrong output or crash. If you can't write
+                     this, it isn't a finding — it's a preference."
+  severity: "high | medium | low"

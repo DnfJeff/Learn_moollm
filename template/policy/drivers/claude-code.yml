@@ -1,0 +1,60 @@
+# Driver — Claude Code
+# Maps core policy's abstract operations onto this host's concrete tools.
+# Policy says `read_file`; this file says what that means here.
+
+driver:
+  name: claude-code
+  tier: 5                # 5 = custom tools available via MCP
+  detect:
+    - "Read / Edit / Bash tools present"
+    - "CLAUDE.md in the project root"
+
+capabilities:
+  file_read: true
+  file_write: true
+  file_search: true
+  terminal: true
+  semantic_search: false       # no built-in; MCP can add it
+  custom_tools: true           # via MCP
+  why_parameter: false         # not in the built-in tool schemas
+  append_only_enforcement: false   # honest: nothing enforces it. Use a hook if you need it.
+
+tools:
+  read_file:  { tool: Read }
+  write_file: { tool: Write }
+  edit_file:  { tool: Edit }
+  list_dir:   { tool: Glob }
+  search:     { tool: Grep }
+  terminal:   { tool: Bash }
+
+paths:
+  session_root: .agent/
+  output_sink:  .agent/output.md
+  event_log:    .agent/session-log.md
+  working_set:  .agent/working-set.yml
+  hot_cache:    .agent/hot.yml
+
+# Every unsupported capability needs a declared degradation. A capability you lack
+# without a fallback is a crash waiting for the right host.
+fallbacks:
+  semantic_search: |
+    Use Grep with a regex approximation. Start narrow; widen and re-run if too few hits.
+    Say that you used lexical search — don't imply semantic coverage you didn't have.
+
+  why_parameter: |
+    State intent in prose immediately before the call:
+    "Reading X because I need to know Y."
+
+  append_only_enforcement: |
+    Treat output.md and session-log.md as append-only by convention.
+    For a real guarantee, add to .claude/settings.json:
+      PreToolUse hook rejecting Edit/Write on those paths.
+
+notes:
+  leverage:
+    - "MCP for custom tools, including a `why`-carrying tool schema"
+    - "Task tool for parallel subagent fan-out when independence matters (guide/06)"
+    - "Hooks in .claude/settings.json are the ONLY real enforcement available"
+  limits:
+    - "No semantic search without MCP"
+    - "Tool schemas are fixed unless you add an MCP server"

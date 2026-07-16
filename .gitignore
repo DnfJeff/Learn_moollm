@@ -1,0 +1,5 @@
+# Live session state — each user's is their own
+.agent/
+
+# The origin repo, cloned locally only to re-run study/evidence/measure.py
+moollm/

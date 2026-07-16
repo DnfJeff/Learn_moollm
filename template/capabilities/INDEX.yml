@@ -1,0 +1,33 @@
+# Capability Index — THE ENTRY POINT
+#
+# Every capability, one line each. The agent reads THIS first, then descends only into
+# what it picked. In MOOLLM this file is ~5,100 tokens against a ~790,000-token corpus:
+# 155x smaller, and sufficient to choose. That ratio is the whole mechanism.
+#
+# Reading order:  INDEX (here) -> GLANCE -> CARD -> SKILL -> README
+# Rule: never load a tier without first loading the tier above it.
+#
+# Keep `count` accurate. validate.py checks it, because MOOLLM's says 133 and it has 141.
+
+count: 2
+
+# FOUNDATION — read these first if you're new to this project
+foundation:
+  - id: example-capability
+    tagline: "Annotated skeleton — copy this to make a new one"
+    why: "Shows the four tiers and what belongs in each"
+
+# WORKFLOW
+workflow:
+  - id: code-review
+    tagline: "Find bugs before the human does"
+    why: "Use before any PR; catches correctness issues and reuse opportunities"
+
+# Add groups as the library grows: workflow, analysis, generation, ops...
+# Groups are for humans skimming. The agent reads all of them.
+#
+# AT SCALE (~30+ capabilities): consider converting this to a PROSE index (INDEX.md) —
+# flowing paragraphs where every bold term is exactly a capability directory name,
+# grouped so reading order is dependency order, with this reading protocol printed at
+# the top. MOOLLM measured its prose index at ~46% fewer tokens than the same content
+# as YAML, while carrying MORE relational meaning. At n<30 the YAML form is fine.
