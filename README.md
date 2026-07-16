@@ -1,9 +1,11 @@
-# Learn the Legible Workspace
+# Learn the Legible Workspace - A moollm onramp
 
 **A file-native architecture for orchestrating LLM agents — the curriculum, the tooling,
 and the evidence, in one repo.**
 
-Your AI assistant forgets everything between sessions, reads the whole project to answer
+### Why
+
+Your AI assistant forgets between sessions, reads the whole project to answer
 one question, drifts off your rules, and can't show you why it did what it did. Those four
 problems share one root: everything the assistant knows lives in a conversation, and
 conversations evaporate. The fix is old technology — **write things down** — applied with
@@ -65,6 +67,8 @@ cd study && python evidence/measure.py
 ```
 
 ## Credit
+
+![The User Interface Flower Child — Don's Sims credits icon](../../media/DonHopkinsSimsCreditsIcon.jpg)
 
 Architecture and mechanisms: [MOOLLM](https://github.com/SimHacker/moollm), Don Hopkins
 (SimHacker), 2024–present — with a lineage running through Minsky, Papert, Drescher,
