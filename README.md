@@ -68,7 +68,7 @@ cd study && python evidence/measure.py
 
 ## Credit
 
-![The User Interface Flower Child — Don's Sims credits icon](../../media/DonHopkinsSimsCreditsIcon.jpg)
+![The User Interface Flower Child — Don's Sims credits icon](media/DonHopkinsSimsCreditsIcon.jpg)
 
 Architecture and mechanisms: [MOOLLM](https://github.com/SimHacker/moollm), Don Hopkins
 (SimHacker), 2024–present — with a lineage running through Minsky, Papert, Drescher,
