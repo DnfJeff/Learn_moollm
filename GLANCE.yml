@@ -3,24 +3,26 @@
 
 what: |
   Learn the Legible Workspace — a file-native architecture for orchestrating LLM agents,
-  extracted from Don Hopkins' MOOLLM. Curriculum at three depths, a runnable template,
+  extracted from Don Hopkins' MOOLLM. Curriculum at three depths, two runnable copy-out
+  templates (a working-agent workspace, and a long-term knowledge library built on it),
   and the measured evidence, in one self-contained repo.
 
 why:
   - "Your AI assistant forgets everything, reads everything, and drifts — this fixes all three with plain files"
   - "You want the mechanisms of MOOLLM without the adventure-game costume"
-  - "You want a working starting point today, not a framework dependency"
+  - "You want a working starting point today — an agent workspace, a durable brain space, or both"
 
 when:
-  - '"explain this to me / my boss"      → curriculum/onramp/'
-  - '"set me up / apply it to my repo"   → curriculum/kit/ + template/'
-  - '"prove it / cite it / argue with it" → curriculum/spec/ + study/'
+  - '"explain this to me / my boss"        → curriculum/onramp/'
+  - '"set me up / apply it to my repo"     → curriculum/kit/ + template/'
+  - '"a long-term library I browse in Obsidian" → curriculum/spec/THE-LEGIBLE-LIBRARY.md + library-template/'
+  - '"prove it / cite it / argue with it"  → curriculum/spec/ + study/'
 
 key_insight: "Everything the agent knows becomes text a human can open — and the repo teaching this is organized the same way it teaches."
 
 methods:
   READ: "Start at INDEX.md — the reading protocol is printed at its top"
-  SCAFFOLD: "cp -r template/ into your project; see curriculum/kit/SCAFFOLD.md"
-  VERIFY: "python template/validate.py — the check the origin system never had"
+  SCAFFOLD: "cp -r template/ (a working agent) or library-template/ (a durable library) into your project"
+  VERIFY: "python validate.py inside either template — the check the origin system never had"
 
 related: ["https://github.com/SimHacker/moollm"]
