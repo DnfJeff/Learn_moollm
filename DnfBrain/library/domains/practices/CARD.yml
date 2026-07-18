@@ -1,0 +1,37 @@
+# CARD.yml — practices (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: practices
+  type: [section, librarian]
+  tagline: "Repeatable ways of working: methods, patterns, checklists"
+  related: [tech, life]
+
+files:
+  ledger: SKILL.md        # the list of every unit in this section + placement rules
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [practices, method, workflow, pattern, checklist, standard, convention, way-of-working]
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-WAY-OF-WORKING:
+    score: 80
+    when: "A repeatable method, pattern, checklist, or standard worth re-applying"
+    method: LOCATE
+  FILE-CONVENTION-DECIDED:
+    score: 74
+    when: "A working convention was settled — keep it where the next project will look"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right unit here, or say a new unit is needed"
+    output: "A path under domains/practices/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"
+
+# Placement rules and the ledger live in SKILL.md.

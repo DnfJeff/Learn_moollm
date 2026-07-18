@@ -1,0 +1,34 @@
+# GLANCE.yml — curator
+# Full: CARD.yml | SKILL.md | README.md
+# 🗂️ "A librarian doesn't know what you need — they know which shelf, and who keeps its ledger."
+
+what: |
+  The filing procedure for the library. Takes new material — a note, a finding, a link, a
+  finished project artifact — and routes it to the right place, then keeps the ledgers and
+  finding aids in sync.
+
+why: |
+  - Keeps a large collection findable: things land where a future reader will look
+  - Walks the librarian chain so you never have to know the whole shelf, just the next hop
+  - Enforces provenance and atomicity at filing time, not as cleanup later
+
+when:
+  - '"I''m working on X" → LOCATE (find where X''s output belongs)'
+  - 'New unsorted material exists → CAPTURE (to inbox) then FILE later'
+  - 'inbox/ is non-empty → TRIAGE'
+  - 'A project turned up something reusable → PROMOTE (project → domain)'
+  - 'A unit is superseded → ARCHIVE'
+
+key_insight: |
+  Placement is a routing problem, not a memory problem. The chief librarian
+  (library/INDEX.md) knows which SECTION; each section's librarian (its SKILL.md)
+  knows WHERE ON THE SHELF. Follow the chain; don't hold the map in your head.
+
+methods:
+  LOCATE:  "LOCATE <topic> — return the target path or 'new unit' + reason"
+  CAPTURE: "CAPTURE <material> — drop into inbox/ with a breadcrumb"
+  TRIAGE:  "TRIAGE — process inbox/ items into filed units"
+  PROMOTE: "PROMOTE <project-finding> — graduate reusable knowledge into a domain"
+  ARCHIVE: "ARCHIVE <unit> — retire to archives/, link forward"
+
+related: []

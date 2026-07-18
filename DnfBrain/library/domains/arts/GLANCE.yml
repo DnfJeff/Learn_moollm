@@ -1,0 +1,24 @@
+# GLANCE.yml — arts (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 🎭 "Creative works and the people who made them."
+
+what: |
+  The arts section. Creative works across every medium — film, television, music, literature,
+  visual art — the works themselves, their history and criticism, and their makers.
+
+holds:
+  - Works and bodies of work (a show, a film, an album, a book), each a carded unit
+  - Eras, genres, and movements as classification levels with finding aids
+  - Reviews, criticism, and heavy per-work material (characters, episodes) inside the work's unit
+
+when:
+  - '"a show / film / album / book and what I know about it" → file here'
+  - '"who made this, what era, what genre" (for keeps) → here'
+
+key_insight: |
+  Answers "what is this WORK and its world?" The spine is medium → form → era →
+  genre → the work, so the path itself carries the classification. How a game
+  engine works → tech/. A creator as historical figure → humanities/, cross-linked.
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: [film, music, literature, visual-arts]

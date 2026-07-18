@@ -1,0 +1,49 @@
+# CARD.yml — registrar
+# Interface. Most reads stop here — you can maintain a registry from this file alone.
+# Descend to SKILL.md only to change how registries work.
+
+card:
+  name: registrar
+  type: [capability, library-ops]
+  tagline: "Keep the surfaced registries (cards, manifests, browse tables) in sync"
+  related: [curator]
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md, README.md]
+  resolution: card
+
+k-lines:
+  activates: [registry, card, manifest, roster, by-name, appearance, dual-position, surface]
+
+# Declarative routing (M2). Each names a SITUATION, not this capability.
+advertisements:
+  WRITEUP-LANDED:
+    score: 78
+    when: "A full write-up for a registry-tracked category (e.g. a character) just landed inside a work"
+    method: ADD-CARD
+  SECOND-APPEARANCE:
+    score: 80
+    when: "A figure who already has a card earned a write-up in another work"
+    method: ADD-APPEARANCE
+  REGISTRY-CANDIDATE:
+    score: 60
+    when: "A category keeps being looked up by name across the tree (languages, tools, people)"
+    method: SURFACE
+  REGISTRY-DRIFT:
+    score: 70
+    when: "A registry's cards, MANIFEST.yaml, and README table disagree"
+    method: SYNC
+
+methods:
+  ADD-CARD:
+    description: "Create <name>.yaml from _templates/registry/entry.yaml; add MANIFEST + README + SKILL roster rows; cross-link the write-up"
+    output: "One new card, three new rows, a cross-link in the write-up's frontmatter"
+  ADD-APPEARANCE:
+    description: "Append an appearances[] row to the EXISTING card; bump the manifest count of appearances"
+    output: "Updated card + manifest row — never a second card"
+  SURFACE:
+    description: "Run the three criteria in _templates/registry/README.md; if passed, instantiate the registry and log it"
+    output: "A go/no-go with reasons; on go: new library/<registry>/ + structure-log entry + INDEX line"
+  SYNC:
+    description: "Reconcile cards ↔ MANIFEST.yaml ↔ README table; validate.py confirms"
+    output: "The three layers agreeing, and a note of what drifted"

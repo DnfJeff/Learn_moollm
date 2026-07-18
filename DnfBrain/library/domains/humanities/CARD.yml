@@ -1,0 +1,37 @@
+# CARD.yml — humanities (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: humanities
+  type: [section, librarian]
+  tagline: "What people did, thought, and said — history, philosophy, language"
+  related: [arts, science]
+
+files:
+  ledger: SKILL.md        # the list of every unit in this section + placement rules
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [humanities, history, philosophy, language, linguistics, etymology, era, event, figure, idea, argument]
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-HUMAN-AFFAIRS:
+    score: 80
+    when: "New durable understanding of an event, era, figure, idea, or language"
+    method: LOCATE
+  FILE-FIGURE:
+    score: 72
+    when: "A historical figure beyond any single creative work (a work's people go with the work in arts/)"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right shelf here, or say a new unit is needed"
+    output: "A path under domains/humanities/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"
+
+# Placement rules and the ledger live in SKILL.md.

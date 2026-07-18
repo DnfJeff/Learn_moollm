@@ -1,0 +1,35 @@
+# CARD.yml — the-danny-thomas-show
+# Interface. A reader should be able to cite/use this unit from here alone.
+# Descend to SKILL.md only for the full content.
+
+card:
+  name: the-danny-thomas-show
+  type: [unit, work, show]
+  tagline: "Make Room for Daddy / The Danny Thomas Show (1953–1964)"
+  related: []            # sibling shows link in as the sitcom shelf fills
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md, README.md]
+  interior:
+    characters: characters/       # full write-ups; registry cards in library/characters/ route here
+    reviews: reviews/             # criticism and reception
+  resolution: card
+
+k-lines:
+  activates: [the-danny-thomas-show, make-room-for-daddy, danny-thomas, danny-williams, 1950s-sitcom]
+
+# Declarative routing (M2). Each names the SITUATION where this unit is worth loading.
+advertisements:
+  ANSWERS-SHOW-LOOKUP:
+    score: 75
+    when: "Anything about The Danny Thomas Show / Make Room for Daddy — the work, its run, its people"
+  ANSWERS-CHARACTER-DETAIL:
+    score: 72
+    when: "A registry character card pointed here and the full write-up is needed"
+
+# The citable claim, so a reader needn't open SKILL.md to use the unit:
+summary: >
+  Make Room for Daddy (retitled The Danny Thomas Show from season 4) ran 1953–1964 across ABC
+  and CBS, starring Danny Thomas as nightclub entertainer Danny Williams — a filmed family
+  sitcom of the first television decade. This unit holds the show write-up, its characters
+  (full write-ups interior, quick cards in the characters registry), and reviews.

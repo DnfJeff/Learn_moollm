@@ -1,0 +1,26 @@
+# GLANCE.yml — characters (a registry)
+# Full: CARD.yml | SKILL.md | README.md
+# 🎭 "Look a person up by NAME; the card routes you to every full write-up they've earned."
+
+what: |
+  The characters registry: a surfaced aggregation layer near the top of the library. One small
+  YAML quick card per character or figure, plus a MANIFEST.yaml listing them all. Cards hold
+  the high-level facts and ROUTE to the full write-ups, which live deep in the tree with
+  their works.
+
+why:
+  - People are looked up by name, not by walking medium → era → genre → show
+  - One figure can earn write-ups in several works; one card routes to all of them
+  - Cards are cheap enough to scan in bulk — the registry is the by-name ladder
+
+when:
+  - '"who is <name> / where is <name>''s write-up" → read MANIFEST.yaml, then the card'
+  - '"new character write-up landed" → add a card + manifest row (registrar capability)'
+
+key_insight: |
+  The registry is a finding aid with cards, not a second home for content. Full
+  write-ups stay with their works (single source of truth); the card is dual-
+  positioned routing — CANONICAL-COLLECTION holds because cards only point.
+
+is_a: registry
+tags: [registry, character]

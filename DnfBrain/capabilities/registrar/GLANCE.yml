@@ -1,0 +1,25 @@
+# GLANCE.yml — registrar
+# Full: CARD.yml | SKILL.md | README.md
+# 🪪 "One card, one manifest row, one browse row — or the registry rots."
+
+what: |
+  Keeps the surfaced registries (library/characters/, and any instantiated from
+  _templates/registry/) in sync: creates quick cards for new write-ups, adds appearance
+  routes, updates manifests and browse tables, and decides when a category earns a registry.
+
+why:
+  - A registry is three synced layers (card, MANIFEST row, README row); drift makes it lie
+  - Dual positioning only works if new appearances land on the EXISTING card
+  - Surfacing a new registry is a structural change that must be logged, not improvised
+
+when:
+  - 'A full character/figure write-up landed inside a work → ADD-CARD'
+  - 'A known figure earned a write-up in a SECOND work → ADD-APPEARANCE'
+  - '"should X (languages, tools…) get a registry?" → SURFACE (run the three criteria)'
+
+key_insight: |
+  The registrar never writes content — write-ups belong to their works, filed by
+  the curator. The registrar writes ROUTES: cards that point, manifests that
+  scan, browse rows that navigate.
+
+related: [curator]

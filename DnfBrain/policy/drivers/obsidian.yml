@@ -1,0 +1,52 @@
+# Driver — Obsidian
+# Obsidian is a host: it maps the abstract navigation operations onto a live graph, backlinks,
+# and tag panes. The collection stays plain Markdown + YAML; Obsidian is an UPGRADE of
+# navigation authority, not a storage format. Everything here degrades to the generic driver.
+
+driver:
+  name: obsidian
+  tier: 3
+  detect:
+    - ".obsidian/ directory present at the vault root"
+    - "opened as an Obsidian vault"
+
+capabilities:
+  file_read: true
+  file_write: true
+  file_search: true         # global search
+  backlinks: true           # the backlink pane is live and free
+  graph_view: true          # the graph is a generated finding aid
+  wikilinks: true           # [[name]] resolves by name — names-as-addresses, operational
+
+tools:
+  search:        { feature: "global search (Ctrl/Cmd-Shift-F)" }
+  backlinks:     { feature: "backlink pane" }
+  graph_view:    { feature: "graph + local graph" }
+  tag_facet:     { feature: "tag pane; #tag search" }
+  quick_switch:  { feature: "quick switcher over note names" }
+
+conventions:
+  links: |
+    Prefer relative Markdown links for portability (app.json sets useMarkdownLinks=true).
+    [[wikilinks]] are allowed and resolve by name — that IS names-as-addresses made
+    operational — but keep the collection readable outside Obsidian.
+  cards: |
+    GLANCE.yml / CARD.yml are agent-facing sidecars; Obsidian shows them as files but does not
+    graph them. The graph is built from the Markdown tiers (SKILL.md, README.md, HOME.md) and
+    their frontmatter tags. This is deliberate: humans browse the Markdown, agents route on the
+    cards, one directory serves both.
+  finding_aids: |
+    The backlink pane and graph are LIVE MIRRORS of the collection's structure — read for free
+    instead of hand-maintained. They complement, not replace, the prose catalog and meta/by-*
+    finding aids, which stay authoritative and portable.
+
+# Every Obsidian-specific feature degrades cleanly on a plain host.
+fallbacks:
+  backlinks: "→ generic: search for the unit name across library/."
+  graph_view: "→ generic: library/INDEX.md + meta/by-*.md are the static graph."
+  wikilinks: "→ generic: relative Markdown links resolve everywhere."
+  tag_facet: "→ generic: grep '#tag' or read meta/by-tag.md."
+
+notes:
+  warning: "Do not let finding aids exist ONLY as live Dataview/graph state. Keep a static,
+            portable mirror in meta/ so the library survives without the plugin."

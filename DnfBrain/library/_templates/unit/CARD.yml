@@ -1,0 +1,27 @@
+# CARD.yml — <unit-name>
+# Interface. A reader should be able to cite/use this unit from here alone.
+# Descend to SKILL.md only for the full content.
+
+card:
+  name: <unit-name>
+  type: [unit]           # add a facet: [unit, reference] | [unit, finding] | ...
+  tagline: "<one line>"
+  related: []            # relative links to adjacent units
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md, README.md]
+  resolution: card
+
+k-lines:
+  activates: []          # symbols this unit answers to — draw from meta/ontology.md
+
+# Declarative routing (M2). Each names the SITUATION where this unit is worth loading —
+# NOT the unit's virtues. "when X happens" surfaces it; a self-description does not.
+advertisements:
+  ANSWERS-<situation>:
+    score: 70            # 0–100 baseline relevance. Don't inflate — everything at 95 routes nothing.
+    when: "<the situation in which pulling this note into context is the right move>"
+
+# The citable claim, so a reader needn't open SKILL.md to use the unit:
+summary: >
+  <one-paragraph statement of what this unit establishes>

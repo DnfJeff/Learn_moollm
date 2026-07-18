@@ -1,0 +1,26 @@
+# GLANCE.yml — the-danny-thomas-show (a work unit)
+# Full: CARD.yml | SKILL.md | README.md
+# 📺 "Make Room for Daddy / The Danny Thomas Show (1953–1964) — the show and its world."
+
+what: |
+  The show unit for Make Room for Daddy, retitled The Danny Thomas Show — an eleven-season
+  1950s–60s filmed sitcom starring Danny Thomas as nightclub entertainer Danny Williams. Holds
+  the work itself plus its interior shelves: characters and reviews.
+
+why:
+  - The worked exemplar of a deep arts unit: era and genre carried by the path
+  - Shows the interior pattern (characters/, reviews/) heavy works grow
+  - Its characters demonstrate the registry dual-positioning pattern
+
+when:
+  - '"the Danny Thomas Show / Make Room for Daddy" in any form → here'
+  - '"who was Danny Williams / a character on the show" → characters/ (or the registry card)'
+  - '"what did critics/I think of it" → reviews/'
+
+key_insight: |
+  A heavy work is a directory, not a file: the show's own write-up in SKILL.md,
+  with characters/ and reviews/ as interior shelves. Character write-ups live
+  HERE; the library/characters/ registry holds only the quick cards that route back.
+
+is_a: unit
+tags: [media, reference]

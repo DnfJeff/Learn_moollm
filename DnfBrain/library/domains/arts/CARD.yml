@@ -1,0 +1,41 @@
+# CARD.yml — arts (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: arts
+  type: [section, librarian]
+  tagline: "Creative works and the people who made them"
+  related: [tech, humanities]
+
+files:
+  ledger: SKILL.md        # the list of every unit in this section + placement rules
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [arts, film, tv, television, cinema, music, literature, visual-arts, show, series, sitcom, album, novel, review, character, genre, era]
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-CREATIVE-WORK:
+    score: 80
+    when: "New durable material about a creative work — a show, film, album, book — or its makers"
+    method: LOCATE
+  FILE-WORK-INTERIOR:
+    score: 76
+    when: "Per-work material accumulating: reviews, characters, episodes of a work already shelved"
+    method: LOCATE
+  CHARACTER-WRITE-UP:
+    score: 74
+    when: "A character earns a full write-up — file it inside its work; the characters registry gets the quick card"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right shelf down the medium→era→genre→work spine, or say a new unit is needed"
+    output: "A path under domains/arts/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"
+
+# Placement rules and the ledger live in SKILL.md.

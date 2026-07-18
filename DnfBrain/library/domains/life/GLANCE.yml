@@ -1,0 +1,24 @@
+# GLANCE.yml — life (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 🏡 "Practical living: the body, the money, the home, the table."
+
+what: |
+  The life section. Practical knowledge for running a life — health, finance, the home and
+  its systems, food — kept because future-you will need it again.
+
+holds:
+  - Health and habit knowledge (understanding, not personal records)
+  - Financial concepts and decisions with their rationale
+  - Home, vehicle, and tool maintenance worth remembering
+  - Cooking technique and recipes that earned their place
+
+when:
+  - '"how do I maintain / fix / decide this life thing" (for keeps) → file here'
+  - '"a decision I''ll want the rationale for later" → here'
+
+key_insight: |
+  Answers "how do I RUN MY LIFE well?" The reader is future-you. A repeatable
+  method that isn't life-specific → practices/. A system's internals → tech/.
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: [health, finance, home, food]

@@ -1,0 +1,24 @@
+# danny-thomas — character quick card (registry entry)
+# Small on purpose: high-level facts + routes. The full write-up lives with the work.
+
+card:
+  id: danny-thomas
+  name: "Danny Thomas"
+  type: [registry-card, character]
+  aka: [danny-williams, "Amos Muzyad Yakhoob Kairouz"]
+
+quick:
+  who: "Entertainer and producer (1912–1991); founder of St. Jude Children's Research Hospital"
+  known_for: "Starring as nightclub entertainer Danny Williams on Make Room for Daddy / The Danny Thomas Show (1953–1964)"
+  era: 1950s
+  status: draft            # mirrors the write-up's frontmatter status
+
+# Dual positioning: every full write-up this figure has earned, one entry per work.
+# A second show gets a second entry here — never a second card.
+appearances:
+  - work: the-danny-thomas-show
+    role: "Danny Williams (lead) — and himself, as the star"
+    writeup: ../domains/arts/film/tv/1950s/sitcom/the-danny-thomas-show/characters/danny-thomas.md
+
+k-lines:
+  activates: [danny-thomas, danny-williams, make-room-for-daddy, the-danny-thomas-show]

@@ -1,0 +1,31 @@
+# CARD.yml — sim-obliterator-suite-depr
+# Interface. A reader should be able to cite/use this unit from here alone.
+
+card:
+  name: sim-obliterator-suite-depr
+  type: [unit, tool, exemplar]
+  tagline: "A deprecated Sims 1 tool suite, fully carded at depth (worked exemplar)"
+  related: []            # sibling tools link in as the shelf fills
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md, README.md]
+  resolution: card
+
+k-lines:
+  activates: [sim-obliterator-suite, sims-1-tools, deprecated-tool, modding-toolchain]
+
+# Declarative routing (M2). Each names the SITUATION where this unit is worth loading.
+advertisements:
+  ANSWERS-DEAD-TOOL-LOOKUP:
+    score: 65
+    when: "Something references this tool suite and you need what it did or what replaced it"
+  SHAPE-FOR-TOOL-UNIT:
+    score: 60
+    when: "Filing a new tool write-up on this shelf and wanting the worked shape to copy"
+
+# The citable claim, so a reader needn't open SKILL.md to use the unit:
+summary: >
+  Exemplar unit staged at initialization: the shape of a tool write-up on the Sims 1 dev-tools
+  shelf, including how a deprecated tool is kept (behavior, formats touched, succession) with
+  its status carried in the path (-depr). Replace the placeholder cargo with real findings;
+  the structure is the deliverable.

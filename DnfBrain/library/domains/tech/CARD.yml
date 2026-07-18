@@ -1,0 +1,41 @@
+# CARD.yml — tech (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: tech
+  type: [section, librarian]
+  tagline: "Computing: platforms, software, and how specific systems work"
+  related: [arts, science, practices]
+
+files:
+  ledger: SKILL.md        # the list of every unit in this section + placement rules
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [tech, pc, gaming, hardware, programming, language, ai, local-models, agents, web, format, internals, reverse-engineering, tooling, modding, engine]
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-HOW-IT-WORKS:
+    score: 80
+    when: "New durable knowledge about how a specific system, tool, format, or platform works"
+    method: LOCATE
+  FILE-GAME-TECHNICAL:
+    score: 78
+    when: "A game's internals, formats, dev tools, or modding ecosystem (its culture goes to arts/)"
+    method: LOCATE
+  FILE-AI-PRACTICE:
+    score: 76
+    when: "Findings about running models locally or driving agents — runtimes, harnesses, configs"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right shelf down the platform→domain→subject→concern spine, or say a new unit is needed"
+    output: "A path under domains/tech/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"
+
+# Placement rules and the ledger live in SKILL.md.

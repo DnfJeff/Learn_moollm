@@ -1,0 +1,20 @@
+# GLANCE.yml — <section-name> (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# <emoji> "<one line: what this shelf is for>"
+
+what: |
+  The <section-name> section. <What durable, reusable knowledge lives here, in 1–2 sentences.>
+
+holds:
+  - <kind of material>
+  - <kind of material>
+
+when:
+  - '"<phrasing that means it belongs here>" → file here'
+
+key_insight: |
+  Answers "<the question this section owns>". <How it differs from the
+  neighboring sections — the one-line boundary test.>
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: []         # name them as they earn their first unit

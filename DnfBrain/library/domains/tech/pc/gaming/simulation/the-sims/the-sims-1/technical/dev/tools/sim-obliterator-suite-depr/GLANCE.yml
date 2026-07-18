@@ -1,0 +1,25 @@
+# GLANCE.yml — sim-obliterator-suite-depr (a tool unit)
+# Full: CARD.yml | SKILL.md | README.md
+# 🪦 "A deprecated Sims 1 tool suite — the shelf outlives the binary."
+
+what: |
+  The exemplar deep unit of the tech spine: a (deprecated) Sims 1 dev/modding tool suite,
+  fully carded ten levels down. The knowledge of what a dead tool did, what formats it
+  touched, and what replaced it stays shelved after the tool itself is gone.
+
+why:
+  - Demonstrates a full card stack at maximum depth — the path carries the whole classification
+  - Shows the -depr naming convention: status readable from the address alone
+  - The pattern for every tool unit on this shelf, living or dead
+
+when:
+  - '"what was sim-obliterator / what did it do / what replaced it" → here'
+  - '"filing a Sims 1 tool write-up" → copy this unit''s shape'
+
+key_insight: |
+  Deprecated is a kind of knowledge, not a reason to delete. A tool unit records
+  behavior, formats touched, and succession — readable from the path before
+  opening a single file.
+
+is_a: unit
+tags: [finding, deprecated]

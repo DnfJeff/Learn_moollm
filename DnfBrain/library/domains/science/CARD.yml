@@ -1,0 +1,37 @@
+# CARD.yml — science (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: science
+  type: [section, librarian]
+  tagline: "How the natural world works — durable subject understanding"
+  related: [tech, humanities]
+
+files:
+  ledger: SKILL.md        # the list of every unit in this section + placement rules
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [science, mathematics, physics, chemistry, biology, astronomy, neuroscience, concept, theory, proof, mental-model]
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-SUBJECT-UNDERSTANDING:
+    score: 80
+    when: "New durable understanding of a natural or formal subject, not tied to one system"
+    method: LOCATE
+  FILE-CONCEPT-KEEPER:
+    score: 74
+    when: "A concept finally understood well enough to explain — worth keeping in your own words"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right discipline shelf here, or say a new unit is needed"
+    output: "A path under domains/science/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"
+
+# Placement rules and the ledger live in SKILL.md.

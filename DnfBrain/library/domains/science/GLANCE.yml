@@ -1,0 +1,25 @@
+# GLANCE.yml — science (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 🔬 "How the natural world works — durable understanding, not tied to any one system."
+
+what: |
+  The science section. Durable understanding of the natural and formal worlds — mathematics,
+  the physical sciences, the life sciences — kept as concepts you'll reach for across years
+  and projects.
+
+holds:
+  - Concepts, methods, and results worth keeping (understanding, not homework)
+  - Mental models and explanations that survived scrutiny
+  - Pointers to authoritative sources, with provenance
+
+when:
+  - '"why/how does the natural world do X" (for keeps) → file here'
+  - '"a mathematical concept I finally understand" → here'
+
+key_insight: |
+  Answers "what is TRUE about the world?" — knowledge that holds across systems.
+  How one specific system is built → tech/. Human affairs and ideas → humanities/.
+  A method you re-apply → practices/.
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: [mathematics, physical-sciences, life-sciences]
