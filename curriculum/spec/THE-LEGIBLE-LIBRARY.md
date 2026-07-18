@@ -53,7 +53,13 @@ project/
     │   └── structure-log.md   Append-only record of every structural change (L6)
     ├── domains/             PROTOTYPES — permanent, reusable, cross-project knowledge (L3)
     │   └── <class>/           A classification class; its README is a finding aid (L2)
-    │       └── <unit>.md      One atomic note: glance frontmatter → body (L1, L2)
+    │       └── <unit>/        One unit = one carded directory (M8), a card stack (L1):
+    │           ├── GLANCE.yml     is this relevant?                        (scan tier)
+    │           ├── CARD.yml       advertisements, k-lines, queries, files  (M2/M9 — routable)
+    │           ├── SKILL.md       the knowledge itself; provenance frontmatter (L6)
+    │           └── README.md      history + human discovery
+    │       # An atomic note that hasn't earned a stack: a single <unit>.md — the cheap
+    │       # rung of the cost dial (L1). It graduates to a directory when it earns it.
     ├── projects/            INSTANCES — time-bound work, instantiated from templates (L3)
     │   └── <project>/         research/ content-maps/ roadmaps/ job-cards/
     │                          execution-logs/ specs/ references/
@@ -61,9 +67,12 @@ project/
     └── archives/            Superseded, not deleted. Provenance preserved (L6)
 ```
 
-Everything in `library/` **MUST** be plain text — Markdown with YAML frontmatter — for the same
-reason the workspace is: legibility is the invariant the mechanisms exist to preserve, and a
-brain space you can only read through one tool is not a brain space you own.
+Everything in `library/` **MUST** be plain text — Markdown for the knowledge and human tiers
+(`SKILL.md`, `README.md`), YAML for the routing and glance tiers (`GLANCE.yml`, `CARD.yml`) — for
+the same reason the workspace is: legibility is the invariant the mechanisms exist to preserve,
+and a brain space you can only read through one tool is not a brain space you own. The card stack
+is retained in full: it is what makes a unit routable by an agent (**L1**), not merely findable by
+`grep`.
 
 ---
 
@@ -75,7 +84,8 @@ already has. The library layer is the mapping made concrete, not a parallel rule
 | Library discipline (from the KLS overview) | Is this Legible Workspace mechanism, at collection scale |
 |---|---|
 | Single source of truth + version control | **M4** externalized state; the legibility invariant; git as the audit trail |
-| Atomicity with explicit relationships | **M8** directory-as-object (one unit = one addressable thing) + **M1** links between tiers |
+| Atomicity with explicit relationships | **M8** directory-as-object — one unit = one carded directory (GLANCE/CARD/SKILL/README) + **M1** its four tiers (**L1**) |
+| Findability — the right note surfaces when relevant | **M2** declarative routing — each unit's CARD.yml advertises the questions it answers (**L4**) |
 | Projects vs Domains separation | **M8** prototype/instance dial — domains are prototypes, projects are instances (**L3**) |
 | Library-grade classification (DDC/LCC-style) | **M1** resolution ladder applied to the *collection*: class → subclass → unit (**L2**) |
 | Controlled vocabulary & ontology | **M9** names as addresses — the ontology *is* the symbol index (**L4**) |
@@ -91,28 +101,47 @@ mapping, then ships the predefined scaffold that makes them usable on day one.
 
 ---
 
-## L1 · The collection is permanent state, not session state
+## L1 · Units are permanent card stacks
 
-A knowledge unit is a small, focused file — one finding, one specification, one decision, one
-reference — that outlives every session that touches it.
+A knowledge unit is **not a lone Markdown file**. It is a directory (**M8**) built as the same
+four-rung card stack every capability uses — the structure that made MOOLLM useful to AI agents,
+kept intact. A knowledge note carded this way is not merely *findable* by full-text search; it is
+*routable*: it advertises the questions it answers (**M2**) and is paged in at the cheapest tier
+that serves the moment (**M1**). Dropping the card stack for flat frontmatter would trade exactly
+that capability for a `grep` target.
 
 **Rules**
 
-1. `library/` **MUST** be git-tracked and **MUST NOT** be gitignored. It is the opposite of
-   `.agent/`: the session zone is disposable working memory (**M4**); the library is the
-   preserved record. A file that belongs in both is promoted from the log to the library (the
-   promotion pattern, **M4** rule 3), never left only in session state.
-2. A unit **SHOULD** hold one concept. Monolithic documents are legitimate only as an explicit
-   `inbox/` staging item or a top-level overview, and carry that status in frontmatter (**L6**).
-3. Relationships are **explicit links between units**, not implied by folder proximity alone.
-   Collocation (**L2**) and linking are complementary: the folder says what class a unit is in;
-   the links say what else it touches.
-4. History is **append-only** where it is narrative (`structure-log.md`, execution logs) and
-   **editable** where it is state (a unit under active revision). Never both in one file.
+1. One unit = one directory (**M8** rule 1); the path is its address. Its rungs, cheapest first:
+   - `GLANCE.yml` — *is this relevant?* The scan tier, read across many units.
+   - `CARD.yml` — the **interface**: `advertisements` (scored, conditioned — **M2**), `k-lines`
+     (the symbols this unit answers to — **M9**), the questions/queries it resolves, a
+     `files:` index, and resolution hints. This rung is what lets an agent pull the right note
+     into context by routing, not by luck.
+   - `SKILL.md` — the **knowledge itself**: the finding, specification, decision, or reference,
+     opening with provenance/status frontmatter (**L6**).
+   - `README.md` — history, rationale, human discovery.
+   A reader loads the cheapest rung that answers the question and **never** a deeper rung without
+   the one above it (**M1** rule 2). Each rung is rewritten for its depth, never truncated (**P3**).
+2. The stack is graduated by the **cost dial** (**M8** rule 6), cheapest first: *mentioned* (a name
+   in another unit) → *modeled* (in a project log) → *embedded* (inside a larger document) →
+   *instantiated* (a full carded directory). An atomic note that has not earned a stack **MAY** be
+   a single frontmattered `<unit>.md` — one `SKILL`-shaped file — and **SHOULD** graduate to a
+   carded directory the moment it becomes reference-grade or routable. Flat-to-structured; never
+   four files for a two-line helper (**M8**'s ceremony-creep degenerate).
+3. `library/` **MUST** be git-tracked and **MUST NOT** be gitignored. It is the opposite of
+   `.agent/`: the session zone is disposable working memory (**M4**); the library is the preserved
+   record. A finding born in a session log is **promoted** into a unit (the promotion pattern,
+   **M4** rule 3), never left only in session state.
+4. Relationships are **explicit** — links and k-lines between units (**M9**), plus each unit's
+   advertisements — not implied by folder proximity alone. The folder says what class a unit is in
+   (**L2**); the links say what it touches; the advertisements say *when it is worth loading*.
+5. History is **append-only** where it is narrative (`structure-log.md`, execution logs) and
+   **editable** where it is state (a unit under revision). Never both in one file.
 
 **Why it works:** the same discipline that lets a session resume from `.agent/` alone lets the
-library be trusted as the source of truth — the record is on paper, not in anyone's head or any
-one conversation.
+library be trusted as the source of truth — and the same card stack that lets an agent choose one
+capability from a hundred lets it choose one note from ten thousand.
 
 ---
 
@@ -183,10 +212,12 @@ workspace already has means the library needs no second rulebook to explain it.
 
 ---
 
-## L4 · The catalog is prose; the ontology is the symbol index
+## L4 · Findability: a prose catalog for humans, advertisements for agents, one ontology for both
 
-A library's controlled vocabulary and its finding aids are, in this vocabulary, **M9** (names as
-addresses) and the prose catalog. The library ships them as first-class files under `meta/`.
+A large brain space is reached two ways over one collection: a human reads the **prose catalog**;
+an agent collects the units' **CARD advertisements** and routes to the best match. Both draw on the
+same controlled vocabulary. This is **M9** (names as addresses), **M2** (declarative routing), and
+the prose catalog, shipped as first-class files under `meta/`.
 
 **Rules**
 
@@ -195,24 +226,35 @@ addresses) and the prose catalog. The library ships them as first-class files un
    else. Prose carries relationships repeated YAML keys cannot, at lower token cost (**M9** rule
    4). The **reading protocol MUST be printed at its top**: resolution order, when to stop, how
    the finding aids relate. The catalog teaches how to read the catalog.
-2. `meta/ontology.md` **MUST** be the **controlled vocabulary**: the project's authority list of
-   preferred terms — each a name → one-line meaning → where it is defined → when to apply it.
-   This file *is* the symbol index of **M9**. New terminology is introduced deliberately, here,
-   once; thereafter the name is the address.
-3. Secondary access paths (`by-domain.md`, `by-project.md`, `by-tag.md`, `by-stage.md`) are
-   **alternate ladders into the same units** — curated finding aids, not copies. A unit is
-   written once and reached many ways; no access path may hold content that isn't a pointer.
-4. Facet tags **MUST** be drawn from the ontology, not coined ad hoc at filing time. A tag that
-   isn't in `ontology.md` isn't a facet yet — it's a candidate to be added there deliberately.
-5. Coined terms clear a higher bar than borrowed ones (**M9**): prefer names already dense in
+2. Each unit's `CARD.yml` **MUST** carry an `advertisements:` block (**M2**): named offers, each
+   with a `score` (baseline relevance) and a `condition` naming the *situation* in which this unit
+   is worth pulling into context — not this unit's virtues, but the moment it answers. This is how
+   the brain space surfaces the right note among thousands: declarative routing, not full-text
+   luck. Adding a unit **MUST NOT** require editing any router; the unit advertises itself and the
+   catalog gains one line (**M2** rule 2).
+3. `meta/ontology.md` **MUST** be the **controlled vocabulary**: the authority list of preferred
+   terms — each a name → one-line meaning → where it is defined → when to apply it. This file *is*
+   the symbol index of **M9**; the `k-lines` in every `CARD.yml` draw their symbols from it. New
+   terminology is introduced deliberately, here, once; thereafter the name is the address.
+4. Secondary access paths (`by-domain.md`, `by-project.md`, `by-tag.md`, `by-stage.md`) are
+   **alternate ladders into the same units** — curated finding aids, not copies. A unit is written
+   once and reached many ways; no access path may hold content that isn't a pointer.
+5. Facet tags and k-lines **MUST** be drawn from the ontology, not coined ad hoc at filing time,
+   and coined terms clear a higher bar than borrowed ones (**M9**): prefer names already dense in
    both the model's and a domain expert's vocabulary. Every private tag is a cache miss for the
-   model *and* a codebook the next human has to learn.
+   model *and* a codebook the next human must learn.
+
+**Honest limit** (as for **M2** everywhere): the "scoring engine" is the model reading YAML.
+Advertisements are soft routing interpreted in context, not expressions an engine evaluates —
+adequate for surfacing likely-relevant notes, and **MUST NOT** be relied on where retrieval must
+be *exhaustive or verifiable* (e.g. "every unit touching this CVE"). That case is a generated
+index, a script's job (**P2**), not routing.
 
 **Degenerate cases:** ontology drift (tags proliferating uncontrolled until the vocabulary means
 nothing — **M9**'s private-jargon accretion at collection scale); index-as-router (finding aids
-accreting per-unit dispatch logic until the catalog is a central router, **M2**'s degenerate
-case); catalog truncation (a master index that is the first lines of each class rather than a
-written map — **P3** violation).
+accreting per-unit dispatch logic until the catalog is a central router again — **M2**'s
+degenerate case); score inflation (every unit advertising 95+); catalog truncation (a master index
+that is the first lines of each class rather than a written map — **P3** violation).
 
 ---
 
@@ -254,11 +296,11 @@ unit self-describing about where it came from and how far it can be trusted.
 
 **Rules**
 
-1. Every significant unit **MUST** open with YAML frontmatter carrying at least:
-   `status` (one of `draft` / `canonical` / `superseded`), `created`, `reviewed`,
-   `provenance` (source + date of capture + any transformation applied), and `related` (links to
-   adjacent units). The first ~50 lines — frontmatter + purpose — **MUST** suffice to decide
-   whether to read on (the sniff contract, **M1** rule 5).
+1. A unit's `SKILL.md` (or its single-file `<unit>.md` at the cheap rung) **MUST** open with YAML
+   frontmatter carrying at least: `status` (one of `draft` / `canonical` / `superseded`),
+   `created`, `reviewed`, `provenance` (source + date of capture + any transformation applied), and
+   `related` (links to adjacent units). The first ~50 lines — frontmatter + purpose — **MUST**
+   suffice to decide whether to read on (the sniff contract, **M1** rule 5).
 2. `status` is the trust dial. A `draft` unit is visible but flagged; a `canonical` unit is the
    authoritative statement; a `superseded` unit is kept for provenance, links forward to its
    replacement, and moves to `archives/`.
@@ -333,10 +375,16 @@ GitHub, through ripgrep, or by an agent with only read/write/list.
 
 **Rules**
 
-1. The library **MUST** remain plain Markdown + YAML frontmatter with **relative-path links** as
-   its portable floor. A `policy/drivers/obsidian.yml` driver maps the abstract navigation
-   operations — link, backlink, list-a-class, facet-by-tag, graph-view — onto Obsidian's
-   features, exactly as any host driver maps abstract ops onto concrete tools (**M3** rule 1).
+1. The library **MUST** remain plain text with **relative-path links** as its portable floor —
+   Markdown for the knowledge and human rungs (`SKILL.md`, `README.md`), YAML for the routing and
+   glance rungs (`GLANCE.yml`, `CARD.yml`). "Obsidian-browsable" names a precise fact: the Markdown
+   rungs **render and graph natively** in Obsidian, and `SKILL.md`'s frontmatter (tags, related)
+   feeds its graph and backlink panes; the YAML cards sit **beside** them as agent-facing sidecars —
+   exactly MOOLLM's deliberate README-for-humans / SKILL-for-models split (anatomy A1), extended to
+   cards-for-agents. Both are plain text a human can open; the card stack is **not** sacrificed for
+   browsability. A `policy/drivers/obsidian.yml` driver maps the abstract navigation operations —
+   link, backlink, list-a-class, facet-by-tag, graph-view — onto Obsidian's features, exactly as
+   any host driver maps abstract ops onto concrete tools (**M3** rule 1).
 2. Obsidian's `[[wikilink]]` resolution is **M9 made operational**: a link by *name* that
    resolves regardless of path is names-as-addresses enforced by the tool. Where the Obsidian
    driver is active, wikilinks **MAY** be used and Obsidian's backlink pane and graph view become
@@ -398,10 +446,24 @@ meaning and when-to-apply. New facets are added here first, then used.
 **4 · The finding-aid set** (`meta/by-domain.md`, `by-project.md`, `by-tag.md`, `by-stage.md`) —
 the alternate ladders of **L4** rule 3, as stubs that fill in as units land.
 
-**5 · The unit frontmatter template** — the **L6** rule 1 schema, as a `unit.md.tmpl` an agent or
-human instantiates for each new note:
+**5 · The unit card-stack templates** — a `unit/` prototype carrying the four rungs of **L1** as
+templates — `GLANCE.yml`, `CARD.yml`, `SKILL.md`, `README.md` — plus a single-file `note.md.tmpl`
+for the cheap rung of the cost dial. `CARD.yml` ships an `advertisements:` + `k-lines:` skeleton so
+a filled-in unit is **routable the moment it lands** (**L4**), and `SKILL.md` opens with the **L6**
+provenance/status frontmatter:
 
 ```yaml
+# CARD.yml (skeleton)
+card: { name: <unit>, related: [] }
+k-lines:
+  activates: []          # symbols this unit answers to — drawn from meta/ontology.md
+advertisements:
+  ANSWERS-<situation>:
+    score: 70
+    when: "the situation in which this note is worth loading — not its virtues"
+```
+```yaml
+# SKILL.md frontmatter
 ---
 status: draft            # draft | canonical | superseded
 created: 2026-07-18
