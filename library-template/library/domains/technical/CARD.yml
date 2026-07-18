@@ -1,0 +1,37 @@
+# CARD.yml — technical (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: technical
+  type: [section, librarian]
+  tagline: "How specific systems, tools, and formats work"
+  related: [knowledge, practices]
+
+files:
+  ledger: SKILL.md        # the list of every unit in this section + placement rules
+  summary: README.md
+  resolution: card        # routing decisions can be made from this file alone
+
+k-lines:
+  activates: [technical, reverse-engineering, format, protocol, architecture, internals, how-it-works, teardown]
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-HOW-IT-WORKS:
+    score: 80
+    when: "New durable knowledge about how a specific system, tool, format, or protocol works"
+    method: LOCATE
+  ROUTE-SPEC-OR-FINDING:
+    score: 78
+    when: "A reverse-engineering finding or a spec for one concrete thing, kept for reuse"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right subclass/unit here, or say a new unit is needed"
+    output: "A path under domains/technical/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"
+
+# Placement rules and the ledger live in SKILL.md.

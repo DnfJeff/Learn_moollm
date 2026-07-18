@@ -24,6 +24,7 @@ and a starting point you can copy today.
 |---|---|---|
 | Curious, non-technical, or deciding for a team | [curriculum/onramp/](curriculum/onramp/WHY-YOUR-AI-FORGETS.md) | 30 min, zero code |
 | A builder using Claude Code / Cursor daily | [curriculum/kit/START-HERE.md](curriculum/kit/START-HERE.md) → [SCAFFOLD](curriculum/kit/SCAFFOLD.md) | working setup in an hour |
+| Building a knowledge base to keep for years and browse in Obsidian | [curriculum/spec/THE-LEGIBLE-LIBRARY.md](curriculum/spec/THE-LEGIBLE-LIBRARY.md) → [library-template/](library-template/) | copy-out vault, ready in an hour |
 | An engineer who wants rules and proof | [curriculum/spec/WHITEPAPER.md](curriculum/spec/WHITEPAPER.md) → [MECHANISMS](curriculum/spec/MECHANISMS.md) | the normative reference |
 
 The three shelves cover the **same ten mechanisms in the same order under the same names**
@@ -39,11 +40,18 @@ INDEX.md          the prose index; reading protocol at the top
 AGENT.md          boot file for working ON the repo (learners: ignore)
 curriculum/       the three shelves: onramp/ · kit/ · spec/ · shared/
 template/         the irreducible-but-complete starting point — copy it out
+library-template/ a long-term knowledge library, pre-staged & Obsidian-ready — copy it out
 study/            the extraction & evidence this is built on (measure.py, honest assessment)
 .agent/           the live session zone — this repo practices what it teaches
 ```
 
-## Quick start (builders)
+## Copy one out
+
+Two templates, one architecture, different jobs. Both are self-contained and both ship the
+`validate.py` the origin system never had. Copy the one you need.
+
+**A working-agent workspace — [`template/`](template/).** A boot file, session state, host
+drivers, and a capability library for an agent working *on a project*. This is the desk.
 
 ```bash
 cp -r template/ /path/to/your-project/agent/
@@ -55,6 +63,21 @@ python validate.py              # 0 errors, 0 warnings
 Then follow [curriculum/kit/SCAFFOLD.md](curriculum/kit/SCAFFOLD.md). Existing project?
 [curriculum/kit/RETROFIT.md](curriculum/kit/RETROFIT.md) adopts incrementally, with a safe
 stopping point at every level.
+
+**A long-term knowledge library — [`library-template/`](library-template/).** The same pattern
+scaled to a durable, classified "everything" brain space you keep for years: pre-staged sections
+that each carry a "librarian" card stack (so new work already knows where it belongs), an
+Obsidian vault so the graph opens on day one, and a `curator` filing capability. This is the
+archive. It is specified in [curriculum/spec/THE-LEGIBLE-LIBRARY.md](curriculum/spec/THE-LEGIBLE-LIBRARY.md).
+
+```bash
+cp -r library-template/ /path/to/your-library/
+cd /path/to/your-library
+cp AGENT.md CLAUDE.md           # or .cursorrules
+python validate.py              # 0 errors, 0 warnings
+```
+
+Then open the folder as an Obsidian vault and start at `HOME.md`.
 
 ## Re-running the evidence
 

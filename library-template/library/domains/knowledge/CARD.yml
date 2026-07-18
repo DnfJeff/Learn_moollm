@@ -1,0 +1,34 @@
+# CARD.yml — knowledge (section librarian)
+# The routing interface. Deciding "where does this go?" — read this and stop here.
+
+card:
+  name: knowledge
+  type: [section, librarian]
+  tagline: "Durable subject understanding, not tied to one system"
+  related: [technical, practices]
+
+files:
+  ledger: SKILL.md
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [knowledge, concept, theory, research, mental-model, subject, field, definition]
+
+advertisements:
+  FILE-SUBJECT-UNDERSTANDING:
+    score: 80
+    when: "New durable understanding of a subject or field, not bound to one system"
+    method: LOCATE
+  ROUTE-CONCEPT-OR-RESEARCH:
+    score: 75
+    when: "A concept, definition, research synthesis, or mental model kept for reuse"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right subclass/unit here, or say a new unit is needed"
+    output: "A path under domains/knowledge/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"

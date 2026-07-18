@@ -1,0 +1,10 @@
+# What I'm focused on right now. Keep under 30 lines. Update at task boundaries.
+# This is disposable session state — NOT the library. The library is under library/.
+focus:
+  task: "Set up the library — rename the domain sections to my real domains"
+  active_files:
+    - library/INDEX.md
+    - library/meta/structure-log.md
+notes:
+  - "Capture into library/inbox/ from day one; triage on a rhythm."
+  - "Keep the librarian card stacks; replace only the labels and placement rules."

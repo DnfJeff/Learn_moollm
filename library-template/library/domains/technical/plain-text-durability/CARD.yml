@@ -1,0 +1,29 @@
+# CARD.yml — plain-text-durability
+# Interface. You can cite this unit's claim from here; descend to SKILL.md for the full argument.
+
+card:
+  name: plain-text-durability
+  type: [unit, reference]
+  tagline: "Why versioned plain text outlives app-specific formats"
+  related: [../../practices]     # (once you add a formats-choice practice, link it here)
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md, README.md]
+  resolution: card
+
+k-lines:
+  activates: [plain-text, durability, file-format, longevity, markdown, plain-text-over-database, preservation]
+
+# Declarative routing (M2). Names the SITUATION where this note is worth loading.
+advertisements:
+  CHOOSING-A-DURABLE-FORMAT:
+    score: 70
+    when: "Deciding how to store something meant to last, or defending plain text over an app format"
+  EXPLAIN-WHY-THIS-LIBRARY-IS-MARKDOWN:
+    score: 60
+    when: "Someone asks why the library isn't a database or a notes app"
+
+# The claim, citable from here:
+summary: >
+  Format durability is independent of tool convenience. Store the canonical copy as versioned
+  plain text; layer tools (Obsidian, editors, scripts) on top, never underneath.

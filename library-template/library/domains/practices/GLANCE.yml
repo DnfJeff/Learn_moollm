@@ -1,0 +1,23 @@
+# GLANCE.yml — practices (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 🛠️ "A repeatable way of doing something — good the next time too."
+
+what: |
+  The practices section. Reusable ways of working: methods, patterns, checklists, standards, and
+  workflows you apply again and again.
+
+holds:
+  - Checklists and runbooks
+  - Patterns (a reusable shape of a solution)
+  - Standards and conventions you hold yourself to
+
+when:
+  - '"how I do X, repeatably / my checklist for Y / the pattern for Z" → file here'
+  - 'anything you want to re-apply rather than re-derive → here'
+
+key_insight: |
+  Answers "how do I DO this, reusably?" If it's how one thing works →
+  technical/. If it's what's true about a subject → knowledge/.
+
+is_a: section
+subclasses: [checklists, patterns, standards]

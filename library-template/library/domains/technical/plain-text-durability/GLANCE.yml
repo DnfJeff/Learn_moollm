@@ -1,0 +1,24 @@
+# GLANCE.yml — plain-text-durability
+# Full: CARD.yml | SKILL.md | README.md
+# 📄 "The format you can still open in 20 years is the one made of plain text."
+
+what: |
+  Why versioned plain-text files (Markdown + YAML) outlast app-specific and binary formats for
+  long-term knowledge, and what that costs.
+
+why: |
+  - A knowledge library is a decades-long bet; the storage format is the bet's foundation
+  - Plain text is diffable, greppable, and readable without the tool that wrote it
+  - Explains why THIS library is Markdown + YAML rather than a database or a proprietary app
+
+when:
+  - 'Choosing a storage format for anything meant to last → read this'
+  - 'Someone proposes moving the library into an app-locked format → read this'
+
+key_insight: |
+  Durability is a property of the format, not the tool. Plain text survives tool churn;
+  app-specific formats die with the app. The cost is that plain text does less on its
+  own — you add tools (like Obsidian) on top, but never underneath.
+
+is_a: unit
+tags: [reference]

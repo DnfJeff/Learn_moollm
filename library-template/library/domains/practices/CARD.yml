@@ -1,0 +1,34 @@
+# CARD.yml — practices (section librarian)
+# The routing interface. Deciding "where does this go?" — read this and stop here.
+
+card:
+  name: practices
+  type: [section, librarian]
+  tagline: "Repeatable ways of working: methods, patterns, checklists"
+  related: [technical, knowledge]
+
+files:
+  ledger: SKILL.md
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [practice, method, pattern, checklist, standard, workflow, runbook, how-to]
+
+advertisements:
+  FILE-REUSABLE-METHOD:
+    score: 80
+    when: "A repeatable way of working worth keeping to re-apply"
+    method: LOCATE
+  ROUTE-CHECKLIST-OR-PATTERN:
+    score: 75
+    when: "A checklist, pattern, standard, or workflow you'll reuse"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right subclass/unit here, or say a new unit is needed"
+    output: "A path under domains/practices/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"

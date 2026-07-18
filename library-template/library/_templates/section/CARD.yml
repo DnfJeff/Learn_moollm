@@ -1,0 +1,31 @@
+# CARD.yml — <section-name> (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: <section-name>
+  type: [section, librarian]
+  tagline: "<what this shelf is for, one line>"
+  related: []          # sibling sections
+
+files:
+  ledger: SKILL.md     # the list of every unit here + placement rules
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: []        # the words that mean "this belongs here" — draw from meta/ontology.md
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-<situation>:
+    score: 80
+    when: "<the kind of new material that belongs on this shelf>"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right subclass/unit here, or say a new unit is needed"
+    output: "A path under this section, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"

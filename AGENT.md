@@ -48,6 +48,11 @@ append-only). If the conversation and the files disagree, the files win.
 - `template/` is copied out by users; it must stay self-contained (no links back into
   curriculum/ or study/) and `python template/validate.py` must exit clean after any edit
   to it.
+- `library-template/` is likewise copied out and must stay self-contained (no links back into
+  curriculum/, study/, or template/); `python library-template/validate.py` must exit clean
+  after any edit. It is the implementation of
+  [curriculum/spec/THE-LEGIBLE-LIBRARY.md](curriculum/spec/THE-LEGIBLE-LIBRARY.md) — when the
+  layer spec and the template disagree, reconcile them in the same change.
 - `study/` is frozen evidence; correct it only when a primary source (MOOLLM itself)
   contradicts it, and log the correction in the session log.
 - External pointer for the origin: https://github.com/SimHacker/moollm — cloned locally

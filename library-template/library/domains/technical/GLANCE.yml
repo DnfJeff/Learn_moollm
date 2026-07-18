@@ -1,0 +1,24 @@
+# GLANCE.yml — technical (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 🗂️ "How a specific system, tool, or format actually works."
+
+what: |
+  The technical section. Durable, reusable knowledge about how a PARTICULAR thing is built and
+  behaves — a system's architecture, a file format's layout, a tool or protocol's quirks.
+
+holds:
+  - Reverse-engineering findings and format specifications
+  - Architecture teardowns of a specific system or service
+  - Tool/protocol behavior looked up once and kept for reuse
+
+when:
+  - '"how does X work / X''s format / X''s internals" (for keeps) → file here'
+  - 'reference tied to a concrete thing, reused across projects → here'
+
+key_insight: |
+  Answers "how does THIS THING work?" — knowledge bound to a specific system.
+  Subject theory not tied to one system → knowledge/. A repeatable way of
+  working → practices/.
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: [formats, systems, tools]

@@ -1,0 +1,17 @@
+# Capability Index — THE ENTRY POINT for executable how-tos.
+# (The KNOWLEDGE library is separate — that's under library/, catalogued by library/INDEX.md.)
+#
+# Reading order:  INDEX -> GLANCE -> CARD -> SKILL -> README
+# Rule: never load a tier without first loading the tier above it.
+# Keep `count` accurate — validate.py checks it.
+
+count: 1
+
+# LIBRARY OPERATIONS
+library-ops:
+  - id: curator
+    tagline: "File new material into the right shelf, keep the ledgers in sync"
+    why: "The librarian procedure — intake, classification, promotion, archiving. Use it whenever new knowledge arrives."
+
+# Add capabilities as you grow: research, synthesis, export, publish...
+# At ~30+, convert this to a prose INDEX.md (see the pattern in the base moollm template).
