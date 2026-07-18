@@ -25,7 +25,9 @@ per mechanism in **curriculum/kit/guides/**, incremental adoption in
 **curriculum/spec/** is the top shelf — normative rules in
 **curriculum/spec/MECHANISMS.md**, the argument in **curriculum/spec/WHITEPAPER.md**,
 numbers in **curriculum/spec/EVIDENCE.md**, credit and lineage in
-**curriculum/spec/PROVENANCE.md**.
+**curriculum/spec/PROVENANCE.md**. A durable-collection layer built on the ten mechanisms —
+the long-term "everything" brain space, classified and Obsidian-browsable — is specified in
+**curriculum/spec/THE-LEGIBLE-LIBRARY.md**.
 
 **curriculum/shared/CANON.md** is the source of truth for every name, definition, and
 analogy — when any document disagrees with it, the canon wins.
