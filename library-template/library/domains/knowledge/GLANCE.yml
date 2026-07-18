@@ -1,0 +1,23 @@
+# GLANCE.yml — knowledge (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 📚 "What's true about a subject — not tied to any one system."
+
+what: |
+  The knowledge section. Durable understanding of a subject or field: concepts, theory, research
+  notes, mental models, and facts you want kept — none of it bound to a single system or tool.
+
+holds:
+  - Concepts and definitions you return to
+  - Research notes and synthesized understanding of a field
+  - Mental models and "how to think about X"
+
+when:
+  - '"what is X / how does this field work / the theory behind Y" → file here'
+  - 'understanding that stays true across many tools and systems → here'
+
+key_insight: |
+  Answers "what is true about this SUBJECT?" If it's about how one concrete
+  thing works → technical/. If it's a repeatable way of doing work → practices/.
+
+is_a: section
+subclasses: [concepts, research, models]

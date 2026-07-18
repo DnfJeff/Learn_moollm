@@ -1,0 +1,63 @@
+# CARD.yml — curator
+# Interface. Most reads stop here — you can file correctly from this file alone.
+# Descend to SKILL.md only to change how filing works.
+
+card:
+  name: curator
+  type: [capability, library-ops]
+  tagline: "File new material into the right shelf; keep the ledgers in sync"
+  related: []
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md, README.md]
+  resolution: card
+
+k-lines:
+  activates: [file, classify, triage, inbox, curate, promote, archive, where-does-this-go]
+
+# Declarative routing (M2). Each names a SITUATION, not this capability.
+advertisements:
+  WORKING-ON-X:
+    score: 85
+    when: "User says they're working on, researching, or about to produce something for keeps"
+    method: LOCATE
+  NEW-MATERIAL:
+    score: 80
+    when: "Any note, finding, link, or artifact arrives that should be kept"
+    method: CAPTURE
+  INBOX-NONEMPTY:
+    score: 70
+    when: "library/inbox/ has items waiting to be filed"
+    method: TRIAGE
+  PROJECT-YIELDED-REUSE:
+    score: 75
+    when: "A project discovered something reusable beyond that project"
+    method: PROMOTE
+
+methods:
+  LOCATE:
+    description: "Walk the librarian chain to find where material belongs"
+    parameters: { topic: "what the material is about" }
+    output: "A target path under library/domains|projects/, or 'new unit: <name>' + placement reason"
+    effect: "none — read-only routing"
+  CAPTURE:
+    description: "Drop unsorted material into inbox/ with a breadcrumb; no classification required"
+    output: "A file in library/inbox/ with source + date"
+    effect: "writes one inbox file"
+  TRIAGE:
+    description: "Process inbox items: atomize, classify, create units, register in ledgers"
+    output: "Filed units + updated section ledgers + updated meta/ finding aids"
+    effect: "creates/moves units; updates ledgers"
+  PROMOTE:
+    description: "Graduate a reusable project finding into a domain unit"
+    effect: "creates a domain unit; links back to the project"
+  ARCHIVE:
+    description: "Retire a superseded unit to archives/ with a forward link"
+    effect: "moves a unit; sets status: superseded"
+
+# What filing must never skip. Checked by validate.py, not trusted to the model.
+invariants:
+  - "Every new unit has SKILL.md frontmatter: status, created, provenance (LEDGER-SYNC, PROVENANCE)"
+  - "Every new unit is registered in its section ledger (SKILL.md) and in meta/by-tag.md if it adds a facet"
+  - "Uncertain placement → inbox/, never a guess into domains/ (CLASSIFY-LAST)"
+  - "Tags come from meta/ontology.md, coined there deliberately first"

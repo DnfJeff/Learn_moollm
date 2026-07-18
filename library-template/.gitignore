@@ -1,0 +1,17 @@
+# Session runtime is not source — but keep the starter stubs so a fresh copy works.
+# Note: exclude the CONTENTS (.agent/*), not the directory, or the negations below can't
+# re-include a file whose parent dir is excluded (a git gotcha).
+.agent/*
+!.agent/working-set.yml
+!.agent/session-log.md
+!.agent/output.md
+
+# Obsidian: keep the shared vault config committed (so the graph opens with something to see),
+# drop the per-user session layout and caches.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/graph-view.json
+
+# Obsidian trash
+.trash/

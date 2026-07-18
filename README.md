@@ -39,6 +39,7 @@ INDEX.md          the prose index; reading protocol at the top
 AGENT.md          boot file for working ON the repo (learners: ignore)
 curriculum/       the three shelves: onramp/ · kit/ · spec/ · shared/
 template/         the irreducible-but-complete starting point — copy it out
+library-template/ a long-term knowledge library, pre-staged & Obsidian-ready — copy it out
 study/            the extraction & evidence this is built on (measure.py, honest assessment)
 .agent/           the live session zone — this repo practices what it teaches
 ```

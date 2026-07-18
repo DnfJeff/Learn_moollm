@@ -38,6 +38,12 @@ analogy — when any document disagrees with it, the canon wins.
 portable policy with host drivers, a two-capability library, and **template/validate.py**
 — the mechanical check the origin system never had. Copy it out; don't work inside it.
 
+**library-template/** is the durable-collection layer of
+**curriculum/spec/THE-LEGIBLE-LIBRARY.md**, shipped ready to copy: a long-term knowledge
+library pre-staged with classified sections, each carrying a "librarian" card stack, plus an
+Obsidian vault config so the graph opens with something to see, the `curator` filing capability,
+and **library-template/validate.py** extended to check card-stack completeness and ledger sync.
+
 ## The evidence
 
 **study/** is the extraction that produced all of this: the mechanism inventory in

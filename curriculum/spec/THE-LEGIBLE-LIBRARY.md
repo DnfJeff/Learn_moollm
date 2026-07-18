@@ -411,7 +411,10 @@ scaffold, not design one. In MOOLLM terms the scaffold is a **prototype with an 
 (anatomy A5): opinionated starter content you reference, copy, or extend by path — the same way
 the base template ships a two-capability library to copy from.
 
-The scaffold `library/` contains, ready to instantiate:
+A ready-to-copy implementation of this scaffold ships at
+[`library-template/`](../../library-template/) — a self-contained, Obsidian-ready quickstart
+with the classification sections pre-staged as librarian card stacks. The scaffold `library/`
+contains, ready to instantiate:
 
 **1 · The collection skeleton** — the directory shape from *The shape* above, with `inbox/`,
 `archives/`, `domains/`, `projects/`, and `meta/` present and each carrying a stub finding aid so
