@@ -1,0 +1,33 @@
+# Driver — generic
+# The "I don't know where I am" case. Assume almost nothing; degrade everything.
+# ALWAYS SHIP THIS ONE. An agent that can't run on an unknown host isn't portable.
+
+driver:
+  name: generic
+  tier: 1
+  detect:
+    - "fallback — nothing else matched"
+
+capabilities:
+  file_read: maybe
+  file_write: maybe
+  file_search: false
+  backlinks: false
+  graph_view: false
+  wikilinks: false
+
+tools:
+  possible: [read_file, write_file, list_dir]
+  fallback: "Ask the user to perform the operation and report the result."
+
+fallbacks:
+  file_read: "If a read tool exists, use it; else ask the user to paste the file at a named path."
+  file_write: "If a write tool exists, use it; else output the full file and ask the user to save it."
+  file_search: "No search. Ask where something is, or infer from what you've been shown. Don't claim you searched."
+  backlinks: "No backlink pane. Find references by searching for the unit's name across library/."
+  graph_view: "No graph. Use library/INDEX.md and the meta/by-* finding aids as the map."
+  wikilinks: "Use relative Markdown links; they resolve everywhere."
+
+guidelines:
+  be_explicit: ["State what you're doing", "State what tools you'd need", "State your assumptions"]
+  be_honest: ["Acknowledge limits plainly", "Never pretend to have filed something you couldn't"]

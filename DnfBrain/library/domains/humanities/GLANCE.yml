@@ -1,0 +1,24 @@
+# GLANCE.yml — humanities (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 🏺 "What people did, thought, and said — history, philosophy, language."
+
+what: |
+  The humanities section. Durable understanding of human affairs — what happened (history),
+  what people have thought about it (philosophy), and the languages it happened in.
+
+holds:
+  - Events, eras, and figures, kept as understanding rather than trivia
+  - Ideas, arguments, and the thinkers behind them
+  - Languages studied, linguistics, etymology, usage
+
+when:
+  - '"what happened / why did it matter / who was involved" (for keeps) → file here'
+  - '"an idea or argument worth keeping straight" → here'
+
+key_insight: |
+  Answers "what have PEOPLE done and thought?" A person known chiefly through a
+  creative work belongs with the work under arts/ (cross-linked). The natural
+  world → science/. A person looked up by name → the characters registry routes you.
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: [history, philosophy, language]

@@ -1,0 +1,39 @@
+# CARD.yml — characters (registry librarian)
+# The routing interface. An agent resolving a person BY NAME reads this and the manifest.
+
+card:
+  name: characters
+  type: [registry, librarian]
+  tagline: "By-name lookup for characters and figures; cards route to full write-ups"
+  related: [../domains/arts, ../domains/humanities]
+
+files:
+  manifest: MANIFEST.yaml       # every card, one row each — the scan tier for the whole registry
+  cards: "*.yaml"               # one quick card per figure (agent-facing)
+  browse: README.md             # the human navigation layer (GitHub/Obsidian)
+  ledger: SKILL.md              # registry rules + the same list, human-annotated
+  resolution: card
+
+k-lines:
+  activates: [character, figure, person, who-is, by-name-lookup, cast, appearances]
+
+# Declarative routing (M2). Each names the SITUATION that routes through this registry.
+advertisements:
+  RESOLVE-PERSON-BY-NAME:
+    score: 82
+    when: "A character or figure is referenced by name and their write-up must be found"
+    method: RESOLVE
+  REGISTER-CHARACTER:
+    score: 76
+    when: "A full character write-up landed inside a work — it needs a card and manifest row"
+    method: REGISTER
+
+methods:
+  RESOLVE:
+    description: "MANIFEST.yaml → the figure's card → follow its appearances[] routes to the write-up(s)"
+    output: "The path(s) of the full write-up(s), plus the card's quick facts"
+  REGISTER:
+    description: "Create <name>.yaml from _templates/registry/entry.yaml, add the manifest row, cross-link the write-up (registrar capability)"
+    output: "A new card + MANIFEST.yaml row + README.md row"
+
+# Registry rules and the annotated list live in SKILL.md.

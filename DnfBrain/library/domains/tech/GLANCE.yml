@@ -1,0 +1,27 @@
+# GLANCE.yml — tech (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 💻 "Computing: platforms, software, and how specific systems actually work."
+
+what: |
+  The tech section. Computing knowledge for keeps — platforms and hardware, games as systems,
+  programming languages and tools, AI models and agents, the web — including reverse-engineered
+  internals and format specs.
+
+holds:
+  - How a specific system, tool, or format works (internals, teardowns, specs)
+  - Platform and hardware knowledge; game titles as technical subjects
+  - Programming languages, tooling, and official-doc pointers
+  - Running and driving AI models: local runtimes, agent patterns
+
+when:
+  - '"how does X work / X''s format / X''s internals" (for keeps) → file here'
+  - '"a game''s engine, tools, modding ecosystem" → here'
+  - '"language idioms, runtime configs, model serving" → here'
+
+key_insight: |
+  Answers "how does this COMPUTING THING work?" The spine is platform → domain →
+  franchise/subject → title → concern. A game's culture and reviews → arts/
+  (cross-linked). Science of computation → science/. A repeatable method → practices/.
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: [pc, programming, ai, web]

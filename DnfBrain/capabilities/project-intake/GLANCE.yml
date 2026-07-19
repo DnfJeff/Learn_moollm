@@ -1,0 +1,25 @@
+# GLANCE.yml — project-intake
+# Full: CARD.yml | SKILL.md | README.md
+# 🚀 "'Hey, I've got a new project' — the flow from that sentence to a wired instance."
+
+what: |
+  The new-project procedure: from the user announcing a project to a project instance under
+  library/projects/, instantiated from the template, wired to the domain shelves it draws on,
+  and registered in the finding aids.
+
+why:
+  - A project that starts outside the library never feeds it (its findings die in chat)
+  - The wiring (references into domains) is cheapest at the start, when scope is stated
+  - A repeatable start is testable — this flow is a benchmark for any host model
+
+when:
+  - '"I''ve got a new project / I''m starting X" → run OPEN'
+  - 'work is happening with no projects/<name>/ to log it → OPEN, then backfill'
+  - 'a project is finishing → hand off to curator PROMOTE, then CLOSE'
+
+key_insight: |
+  A project is an instance, not a place to hoard knowledge. It starts by naming
+  the domain shelves it will draw on and feed — so promotion at the end is a
+  walk down a list, not an archaeology dig.
+
+related: [curator]

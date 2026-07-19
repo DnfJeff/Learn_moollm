@@ -1,0 +1,42 @@
+# CARD.yml — project-intake
+# Interface. Most reads stop here — you can open a project correctly from this file alone.
+# Descend to SKILL.md only to change how intake works.
+
+card:
+  name: project-intake
+  type: [capability, library-ops]
+  tagline: "From 'I've got a new project' to a wired instance under library/projects/"
+  related: [curator]
+
+files:
+  tiers: [GLANCE.yml, CARD.yml, SKILL.md, README.md]
+  resolution: card
+
+k-lines:
+  activates: [new-project, starting, kickoff, initiative, project-setup, working-on]
+
+# Declarative routing (M2). Each names a SITUATION, not this capability.
+advertisements:
+  NEW-PROJECT-ANNOUNCED:
+    score: 88
+    when: "User says they have a new project, are starting an initiative, or 'I'm working on X' where X is an effort, not a topic"
+    method: OPEN
+  UNHOMED-WORK:
+    score: 72
+    when: "Multi-session work is producing artifacts with no projects/<name>/ instance to hold them"
+    method: OPEN
+  PROJECT-FINISHING:
+    score: 74
+    when: "A project is wrapping up — its yield must be promoted before it's archived"
+    method: CLOSE
+
+methods:
+  OPEN:
+    description: "Interview briefly (goal, domains touched, first deliverable) → instantiate _templates/project/ → wire references/ into domain shelves → register"
+    output: "library/projects/<name>/ with README goal block filled, references/ pointing at domain shelves, and a by-project.md row"
+  STATUS:
+    description: "Read a project's README + latest execution-log entry; report state without loading the whole instance"
+    output: "Goal, status, last activity, next step"
+  CLOSE:
+    description: "Walk the project's yield: curator PROMOTE for each reusable finding, then archive; log it"
+    output: "Promoted units listed, project marked done/archived, structure-log entry"

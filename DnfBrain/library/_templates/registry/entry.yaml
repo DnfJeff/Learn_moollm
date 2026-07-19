@@ -1,0 +1,23 @@
+# <name> — quick card (registry entry template)
+# Small on purpose: high-level facts + routes. Full content lives with its work/class.
+
+card:
+  id: <lowercase-kebab-name>
+  name: "<display name>"
+  type: [registry-card, <category>]     # e.g. character | language | tool
+  aka: []                               # aliases by-name resolution should catch
+
+quick:
+  who: "<one line: what/who this is>"
+  known_for: "<one line: why it's in the library>"
+  status: draft                         # mirrors the primary write-up's status
+
+# Routing: every full write-up this entry has earned, one row per location.
+# More material elsewhere = more rows on THIS card — never a second card.
+appearances:
+  - work: <unit-name>
+    role: "<relationship to that unit>"
+    writeup: <relative path to the full write-up>
+
+k-lines:
+  activates: []                         # names/aliases this card answers to

@@ -1,0 +1,20 @@
+# GLANCE.yml — <unit-name>
+# Full: CARD.yml | SKILL.md | README.md
+# <emoji> "<one-line hook — the payload in a sentence>"
+
+what: |
+  <what this unit holds, in 1–2 sentences. Rewrite for THIS depth — don't paste the SKILL intro.>
+
+why: |
+  - <why it's worth keeping>
+  - <what it lets a future reader do>
+
+when:
+  - '"<phrasing a reader would use>" → read this'
+  - '<situation where this is the right note> → here'
+
+key_insight: |
+  <the single most important thing. If a reader remembers one line, this.>
+
+is_a: unit
+tags: []                 # facets from meta/ontology.md

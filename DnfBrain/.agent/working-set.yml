@@ -1,0 +1,12 @@
+# What I'm focused on right now. Keep under 30 lines. Update at task boundaries.
+# This is disposable session state — NOT the library. The library is under library/.
+focus:
+  task: "Transplant DnfBrain to its own repo; then run the first project-intake for real"
+  active_files:
+    - library/INDEX.md
+    - library/inbox/local-model-test-bench.md
+    - capabilities/project-intake/CARD.yml
+notes:
+  - "Staged 2026-07-18 as a full instance: six sections, two exemplar deep paths, characters registry."
+  - "First procedure test planned on a local model (see the inbox item); judge runs by the files, not the chat."
+  - "Capture into library/inbox/ from day one; triage on a rhythm."

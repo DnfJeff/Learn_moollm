@@ -1,0 +1,44 @@
+# Driver — Claude Code
+# Maps core policy's abstract operations onto this host's concrete tools.
+
+driver:
+  name: claude-code
+  tier: 5
+  detect:
+    - "Read / Edit / Bash tools present"
+    - "CLAUDE.md in the project root"
+
+capabilities:
+  file_read: true
+  file_write: true
+  file_search: true
+  backlinks: false        # no live backlink pane; approximate by search
+  graph_view: false       # no graph; use the prose catalog + finding aids
+  wikilinks: false        # links are plain Markdown here
+
+tools:
+  read_file:  { tool: Read }
+  write_file: { tool: Write }
+  edit_file:  { tool: Edit }
+  list_dir:   { tool: Glob }
+  search:     { tool: Grep }
+  terminal:   { tool: Bash }
+
+paths:
+  session_root: .agent/
+  library_root: library/
+  catalog:      library/INDEX.md
+  ontology:     library/meta/ontology.md
+  change_log:   library/meta/structure-log.md
+
+fallbacks:
+  backlinks: "Grep for the unit's directory name across library/ to find what links to it."
+  graph_view: "Read library/INDEX.md and meta/by-*.md — the finding aids are the static graph."
+  wikilinks: "Write relative Markdown links; run validate.py to catch dangling ones."
+
+notes:
+  leverage:
+    - "Bash to run validate.py in a pre-commit hook or CI"
+    - "Grep as the search-and-backlink substitute across the collection"
+  limits:
+    - "No live graph/backlinks — the finding aids in meta/ are the maintained substitute"

@@ -1,0 +1,13 @@
+# MANIFEST.yaml — <registry> registry (template)
+# The scan tier: every card, one row. Resolve a name here first, open one card, follow
+# its appearances[]. Keep count accurate and rows synced (LEDGER-SYNC) — validate.py checks.
+
+registry: <registry-name>
+count: 0
+
+cards: []
+#  - id: <lowercase-kebab-name>
+#    card: <name>.yaml
+#    aka: []
+#    line: "<one line for the scanner>"
+#    appearances: 1

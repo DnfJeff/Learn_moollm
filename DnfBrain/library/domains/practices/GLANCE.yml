@@ -1,0 +1,24 @@
+# GLANCE.yml — practices (a library section)
+# Full: CARD.yml | SKILL.md | README.md
+# 🛠️ "Repeatable ways of working: methods, patterns, checklists."
+
+what: |
+  The practices section. Ways of working you re-apply — methods, patterns, checklists,
+  standards — not tied to any single system or subject.
+
+holds:
+  - Methods and workflows re-applied across projects
+  - Patterns: reusable shapes of a solution
+  - Checklists and standards you actually run
+
+when:
+  - '"a way of doing something, reusable next time" → file here'
+  - '"the checklist / pattern / convention we settled on" → here'
+
+key_insight: |
+  Answers "HOW do we work?" — transferable across subjects. Knowledge about a
+  specific system → tech/. Understanding of a subject → science/ or humanities/.
+  Life-specific know-how → life/.
+
+is_a: section          # its SKILL.md is the ledger + placement rules for this shelf
+subclasses: []         # named as they earn their first units (workflows, patterns, checklists)

@@ -1,0 +1,14 @@
+# MANIFEST.yaml — characters registry
+# The scan tier for the whole registry: every card, one row. An agent resolving a name reads
+# this first, opens the one card that matches, then follows its appearances[] to the write-up.
+# Keep in sync with the cards and README.md (LEDGER-SYNC) — the registrar capability does.
+
+registry: characters
+count: 1
+
+cards:
+  - id: danny-thomas
+    card: danny-thomas.yaml
+    aka: [danny-williams, "Amos Muzyad Yakhoob Kairouz"]
+    line: "Star of The Danny Thomas Show (as Danny Williams); producer; St. Jude founder"
+    appearances: 1

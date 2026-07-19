@@ -1,0 +1,37 @@
+# CARD.yml — life (section librarian)
+# The routing interface. An agent deciding "where does this go?" reads this and stops here.
+
+card:
+  name: life
+  type: [section, librarian]
+  tagline: "Practical living: health, finance, home, food"
+  related: [practices]
+
+files:
+  ledger: SKILL.md        # the list of every unit in this section + placement rules
+  summary: README.md
+  resolution: card
+
+k-lines:
+  activates: [life, health, fitness, finance, money, home, house, vehicle, repair, food, cooking, recipe, maintenance]
+
+# Declarative routing (M2). Each names the SITUATION that files work into this section.
+advertisements:
+  FILE-PRACTICAL-LIVING:
+    score: 80
+    when: "New durable knowledge about health, money, the home, or food"
+    method: LOCATE
+  FILE-LIFE-DECISION:
+    score: 74
+    when: "A life decision made — keep the rationale where future-you will look"
+    method: LOCATE
+
+methods:
+  LOCATE:
+    description: "Point to the right shelf here, or say a new unit is needed"
+    output: "A path under domains/life/, or 'new unit: <name>' + placement reason"
+  REGISTER:
+    description: "Add a new unit to the ledger after it's created"
+    output: "A new row in SKILL.md's ledger"
+
+# Placement rules and the ledger live in SKILL.md.
